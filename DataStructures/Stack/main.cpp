@@ -11,14 +11,15 @@ int main(){
         s.push(3);
         s.push(4);
         s.push(5);
-
-        s.search();
+        s.push(6);
 
         Node *n = s.pop();
-        while( n != NULL ){
+        for(int i=0; i<3; i++){
                 cout << n->value << "\n";
+                delete(n);
                 n = s.pop();
         }
+        delete(n);
 
         return 0;
 }
