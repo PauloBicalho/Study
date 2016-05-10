@@ -1,0 +1,344 @@
+main2.cpp: In function ‘std::string findWindow(std::string, std::string)’:
+main2.cpp:43:73: error: no matching function for call to ‘std::queue<__gnu_cxx::__normal_iterator<int*, std::vector<int> >*>::push(__gnu_cxx::__normal_iterator<int*, std::vector<int> >&)’
+                         elementOcurrences[c].push( --(positions.end())  );
+                                                                         ^
+main2.cpp:43:73: note: candidates are:
+In file included from /usr/include/c++/4.8/queue:64:0,
+                 from main2.cpp:6:
+/usr/include/c++/4.8/bits/stl_queue.h:212:7: note: void std::queue<_Tp, _Sequence>::push(const value_type&) [with _Tp = __gnu_cxx::__normal_iterator<int*, std::vector<int> >*; _Sequence = std::deque<__gnu_cxx::__normal_iterator<int*, std::vector<int> >*, std::allocator<__gnu_cxx::__normal_iterator<int*, std::vector<int> >*> >; std::queue<_Tp, _Sequence>::value_type = __gnu_cxx::__normal_iterator<int*, std::vector<int> >*]
+       push(const value_type& __x)
+       ^
+/usr/include/c++/4.8/bits/stl_queue.h:212:7: note:   no known conversion for argument 1 from ‘__gnu_cxx::__normal_iterator<int*, std::vector<int> >’ to ‘__gnu_cxx::__normal_iterator<int*, std::vector<int> >* const&’
+/usr/include/c++/4.8/bits/stl_queue.h:217:7: note: void std::queue<_Tp, _Sequence>::push(std::queue<_Tp, _Sequence>::value_type&&) [with _Tp = __gnu_cxx::__normal_iterator<int*, std::vector<int> >*; _Sequence = std::deque<__gnu_cxx::__normal_iterator<int*, std::vector<int> >*, std::allocator<__gnu_cxx::__normal_iterator<int*, std::vector<int> >*> >; std::queue<_Tp, _Sequence>::value_type = __gnu_cxx::__normal_iterator<int*, std::vector<int> >*]
+       push(value_type&& __x)
+       ^
+/usr/include/c++/4.8/bits/stl_queue.h:217:7: note:   no known conversion for argument 1 from ‘__gnu_cxx::__normal_iterator<int*, std::vector<int> >’ to ‘__gnu_cxx::__normal_iterator<int*, std::vector<int> >*&&’
+main2.cpp:47:44: error: cannot bind ‘std::basic_ostream<char>’ lvalue to ‘std::basic_ostream<char>&&’
+                                 cout  << i << "#" << *(elementOcurrences[c].front()) << "\n";
+                                            ^
+In file included from /usr/include/c++/4.8/iostream:39:0,
+                 from main2.cpp:2:
+/usr/include/c++/4.8/ostream:602:5: error:   initializing argument 1 of ‘std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&&, const _Tp&) [with _CharT = char; _Traits = std::char_traits<char>; _Tp = __gnu_cxx::__normal_iterator<int*, std::vector<int> >]’
+     operator<<(basic_ostream<_CharT, _Traits>&& __os, const _Tp& __x)
+     ^
+main2.cpp:49:68: error: no match for ‘operator==’ (operand types are ‘__gnu_cxx::__normal_iterator<int*, std::vector<int> >’ and ‘__gnu_cxx::__normal_iterator<int*, std::vector<int> >*’)
+                                         cout << *it2 << "-" << (it2==elementOcurrences[c].front()) << " ";
+                                                                    ^
+main2.cpp:49:68: note: candidates are:
+In file included from /usr/include/c++/4.8/iosfwd:40:0,
+                 from /usr/include/c++/4.8/ios:38,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main2.cpp:2:
+/usr/include/c++/4.8/bits/postypes.h:216:5: note: template<class _StateT> bool std::operator==(const std::fpos<_StateT>&, const std::fpos<_StateT>&)
+     operator==(const fpos<_StateT>& __lhs, const fpos<_StateT>& __rhs)
+     ^
+/usr/include/c++/4.8/bits/postypes.h:216:5: note:   template argument deduction/substitution failed:
+main2.cpp:49:97: note:   ‘__gnu_cxx::__normal_iterator<int*, std::vector<int> >’ is not derived from ‘const std::fpos<_StateT>’
+                                         cout << *it2 << "-" << (it2==elementOcurrences[c].front()) << " ";
+                                                                                                 ^
+In file included from /usr/include/c++/4.8/bits/stl_algobase.h:64:0,
+                 from /usr/include/c++/4.8/bits/char_traits.h:39,
+                 from /usr/include/c++/4.8/ios:40,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main2.cpp:2:
+/usr/include/c++/4.8/bits/stl_pair.h:214:5: note: template<class _T1, class _T2> constexpr bool std::operator==(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)
+     operator==(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+     ^
+/usr/include/c++/4.8/bits/stl_pair.h:214:5: note:   template argument deduction/substitution failed:
+main2.cpp:49:97: note:   ‘__gnu_cxx::__normal_iterator<int*, std::vector<int> >’ is not derived from ‘const std::pair<_T1, _T2>’
+                                         cout << *it2 << "-" << (it2==elementOcurrences[c].front()) << " ";
+                                                                                                 ^
+In file included from /usr/include/c++/4.8/bits/stl_algobase.h:67:0,
+                 from /usr/include/c++/4.8/bits/char_traits.h:39,
+                 from /usr/include/c++/4.8/ios:40,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main2.cpp:2:
+/usr/include/c++/4.8/bits/stl_iterator.h:291:5: note: template<class _Iterator> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)
+     operator==(const reverse_iterator<_Iterator>& __x,
+     ^
+/usr/include/c++/4.8/bits/stl_iterator.h:291:5: note:   template argument deduction/substitution failed:
+main2.cpp:49:97: note:   ‘__gnu_cxx::__normal_iterator<int*, std::vector<int> >’ is not derived from ‘const std::reverse_iterator<_Iterator>’
+                                         cout << *it2 << "-" << (it2==elementOcurrences[c].front()) << " ";
+                                                                                                 ^
+In file included from /usr/include/c++/4.8/bits/stl_algobase.h:67:0,
+                 from /usr/include/c++/4.8/bits/char_traits.h:39,
+                 from /usr/include/c++/4.8/ios:40,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main2.cpp:2:
+/usr/include/c++/4.8/bits/stl_iterator.h:341:5: note: template<class _IteratorL, class _IteratorR> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_IteratorR>&)
+     operator==(const reverse_iterator<_IteratorL>& __x,
+     ^
+/usr/include/c++/4.8/bits/stl_iterator.h:341:5: note:   template argument deduction/substitution failed:
+main2.cpp:49:97: note:   ‘__gnu_cxx::__normal_iterator<int*, std::vector<int> >’ is not derived from ‘const std::reverse_iterator<_Iterator>’
+                                         cout << *it2 << "-" << (it2==elementOcurrences[c].front()) << " ";
+                                                                                                 ^
+In file included from /usr/include/c++/4.8/bits/stl_algobase.h:67:0,
+                 from /usr/include/c++/4.8/bits/char_traits.h:39,
+                 from /usr/include/c++/4.8/ios:40,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main2.cpp:2:
+/usr/include/c++/4.8/bits/stl_iterator.h:1031:5: note: template<class _IteratorL, class _IteratorR> bool std::operator==(const std::move_iterator<_Iterator>&, const std::move_iterator<_IteratorR>&)
+     operator==(const move_iterator<_IteratorL>& __x,
+     ^
+/usr/include/c++/4.8/bits/stl_iterator.h:1031:5: note:   template argument deduction/substitution failed:
+main2.cpp:49:97: note:   ‘__gnu_cxx::__normal_iterator<int*, std::vector<int> >’ is not derived from ‘const std::move_iterator<_Iterator>’
+                                         cout << *it2 << "-" << (it2==elementOcurrences[c].front()) << " ";
+                                                                                                 ^
+In file included from /usr/include/c++/4.8/bits/stl_algobase.h:67:0,
+                 from /usr/include/c++/4.8/bits/char_traits.h:39,
+                 from /usr/include/c++/4.8/ios:40,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main2.cpp:2:
+/usr/include/c++/4.8/bits/stl_iterator.h:1037:5: note: template<class _Iterator> bool std::operator==(const std::move_iterator<_Iterator>&, const std::move_iterator<_Iterator>&)
+     operator==(const move_iterator<_Iterator>& __x,
+     ^
+/usr/include/c++/4.8/bits/stl_iterator.h:1037:5: note:   template argument deduction/substitution failed:
+main2.cpp:49:97: note:   ‘__gnu_cxx::__normal_iterator<int*, std::vector<int> >’ is not derived from ‘const std::move_iterator<_Iterator>’
+                                         cout << *it2 << "-" << (it2==elementOcurrences[c].front()) << " ";
+                                                                                                 ^
+In file included from /usr/include/c++/4.8/string:41:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main2.cpp:2:
+/usr/include/c++/4.8/bits/allocator.h:128:5: note: template<class _T1, class _T2> bool std::operator==(const std::allocator<_CharT>&, const std::allocator<_T2>&)
+     operator==(const allocator<_T1>&, const allocator<_T2>&)
+     ^
+/usr/include/c++/4.8/bits/allocator.h:128:5: note:   template argument deduction/substitution failed:
+main2.cpp:49:97: note:   ‘__gnu_cxx::__normal_iterator<int*, std::vector<int> >’ is not derived from ‘const std::allocator<_CharT>’
+                                         cout << *it2 << "-" << (it2==elementOcurrences[c].front()) << " ";
+                                                                                                 ^
+In file included from /usr/include/c++/4.8/string:41:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main2.cpp:2:
+/usr/include/c++/4.8/bits/allocator.h:133:5: note: template<class _Tp> bool std::operator==(const std::allocator<_CharT>&, const std::allocator<_CharT>&)
+     operator==(const allocator<_Tp>&, const allocator<_Tp>&)
+     ^
+/usr/include/c++/4.8/bits/allocator.h:133:5: note:   template argument deduction/substitution failed:
+main2.cpp:49:97: note:   ‘__gnu_cxx::__normal_iterator<int*, std::vector<int> >’ is not derived from ‘const std::allocator<_CharT>’
+                                         cout << *it2 << "-" << (it2==elementOcurrences[c].front()) << " ";
+                                                                                                 ^
+In file included from /usr/include/c++/4.8/string:52:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main2.cpp:2:
+/usr/include/c++/4.8/bits/basic_string.h:2486:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::basic_string<_CharT, _Traits, _Alloc>&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/include/c++/4.8/bits/basic_string.h:2486:5: note:   template argument deduction/substitution failed:
+main2.cpp:49:97: note:   ‘__gnu_cxx::__normal_iterator<int*, std::vector<int> >’ is not derived from ‘const std::basic_string<_CharT, _Traits, _Alloc>’
+                                         cout << *it2 << "-" << (it2==elementOcurrences[c].front()) << " ";
+                                                                                                 ^
+In file included from /usr/include/c++/4.8/string:52:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main2.cpp:2:
+/usr/include/c++/4.8/bits/basic_string.h:2493:5: note: template<class _CharT> typename __gnu_cxx::__enable_if<std::__is_char<_Tp>::__value, bool>::__type std::operator==(const std::basic_string<_CharT>&, const std::basic_string<_CharT>&)
+     operator==(const basic_string<_CharT>& __lhs,
+     ^
+/usr/include/c++/4.8/bits/basic_string.h:2493:5: note:   template argument deduction/substitution failed:
+main2.cpp:49:97: note:   ‘__gnu_cxx::__normal_iterator<int*, std::vector<int> >’ is not derived from ‘const std::basic_string<_CharT>’
+                                         cout << *it2 << "-" << (it2==elementOcurrences[c].front()) << " ";
+                                                                                                 ^
+In file included from /usr/include/c++/4.8/string:52:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main2.cpp:2:
+/usr/include/c++/4.8/bits/basic_string.h:2507:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const _CharT*, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator==(const _CharT* __lhs,
+     ^
+/usr/include/c++/4.8/bits/basic_string.h:2507:5: note:   template argument deduction/substitution failed:
+main2.cpp:49:97: note:   mismatched types ‘const _CharT*’ and ‘__gnu_cxx::__normal_iterator<int*, std::vector<int> >’
+                                         cout << *it2 << "-" << (it2==elementOcurrences[c].front()) << " ";
+                                                                                                 ^
+In file included from /usr/include/c++/4.8/string:52:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main2.cpp:2:
+/usr/include/c++/4.8/bits/basic_string.h:2519:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)
+     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/include/c++/4.8/bits/basic_string.h:2519:5: note:   template argument deduction/substitution failed:
+main2.cpp:49:97: note:   ‘__gnu_cxx::__normal_iterator<int*, std::vector<int> >’ is not derived from ‘const std::basic_string<_CharT, _Traits, _Alloc>’
+                                         cout << *it2 << "-" << (it2==elementOcurrences[c].front()) << " ";
+                                                                                                 ^
+In file included from /usr/include/c++/4.8/bits/locale_facets.h:48:0,
+                 from /usr/include/c++/4.8/bits/basic_ios.h:37,
+                 from /usr/include/c++/4.8/ios:44,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main2.cpp:2:
+/usr/include/c++/4.8/bits/streambuf_iterator.h:204:5: note: template<class _CharT, class _Traits> bool std::operator==(const std::istreambuf_iterator<_CharT, _Traits>&, const std::istreambuf_iterator<_CharT, _Traits>&)
+     operator==(const istreambuf_iterator<_CharT, _Traits>& __a,
+     ^
+/usr/include/c++/4.8/bits/streambuf_iterator.h:204:5: note:   template argument deduction/substitution failed:
+main2.cpp:49:97: note:   ‘__gnu_cxx::__normal_iterator<int*, std::vector<int> >’ is not derived from ‘const std::istreambuf_iterator<_CharT, _Traits>’
+                                         cout << *it2 << "-" << (it2==elementOcurrences[c].front()) << " ";
+                                                                                                 ^
+In file included from /usr/include/c++/4.8/tuple:39:0,
+                 from /usr/include/c++/4.8/unordered_map:41,
+                 from main2.cpp:5:
+/usr/include/c++/4.8/array:228:5: note: template<class _Tp, long unsigned int _Nm> bool std::operator==(const std::array<_Tp, _Nm>&, const std::array<_Tp, _Nm>&)
+     operator==(const array<_Tp, _Nm>& __one, const array<_Tp, _Nm>& __two)
+     ^
+/usr/include/c++/4.8/array:228:5: note:   template argument deduction/substitution failed:
+main2.cpp:49:97: note:   ‘__gnu_cxx::__normal_iterator<int*, std::vector<int> >’ is not derived from ‘const std::array<_Tp, _Nm>’
+                                         cout << *it2 << "-" << (it2==elementOcurrences[c].front()) << " ";
+                                                                                                 ^
+In file included from /usr/include/c++/4.8/unordered_map:41:0,
+                 from main2.cpp:5:
+/usr/include/c++/4.8/tuple:813:5: note: template<class ... _TElements, class ... _UElements> constexpr bool std::operator==(const std::tuple<_Elements ...>&, const std::tuple<_Elements ...>&)
+     operator==(const tuple<_TElements...>& __t,
+     ^
+/usr/include/c++/4.8/tuple:813:5: note:   template argument deduction/substitution failed:
+main2.cpp:49:97: note:   ‘__gnu_cxx::__normal_iterator<int*, std::vector<int> >’ is not derived from ‘const std::tuple<_Elements ...>’
+                                         cout << *it2 << "-" << (it2==elementOcurrences[c].front()) << " ";
+                                                                                                 ^
+In file included from /usr/include/c++/4.8/unordered_map:48:0,
+                 from main2.cpp:5:
+/usr/include/c++/4.8/bits/unordered_map.h:1388:5: note: template<class _Key, class _Tp, class _Hash, class _Pred, class _Alloc> bool std::operator==(const std::unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>&, const std::unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>&)
+     operator==(const unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>& __x,
+     ^
+/usr/include/c++/4.8/bits/unordered_map.h:1388:5: note:   template argument deduction/substitution failed:
+main2.cpp:49:97: note:   ‘__gnu_cxx::__normal_iterator<int*, std::vector<int> >’ is not derived from ‘const std::unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>’
+                                         cout << *it2 << "-" << (it2==elementOcurrences[c].front()) << " ";
+                                                                                                 ^
+In file included from /usr/include/c++/4.8/unordered_map:48:0,
+                 from main2.cpp:5:
+/usr/include/c++/4.8/bits/unordered_map.h:1400:5: note: template<class _Key, class _Tp, class _Hash, class _Pred, class _Alloc> bool std::operator==(const std::unordered_multimap<_Key, _Tp, _Hash, _Pred, _Alloc>&, const std::unordered_multimap<_Key, _Tp, _Hash, _Pred, _Alloc>&)
+     operator==(const unordered_multimap<_Key, _Tp, _Hash, _Pred, _Alloc>& __x,
+     ^
+/usr/include/c++/4.8/bits/unordered_map.h:1400:5: note:   template argument deduction/substitution failed:
+main2.cpp:49:97: note:   ‘__gnu_cxx::__normal_iterator<int*, std::vector<int> >’ is not derived from ‘const std::unordered_multimap<_Key, _Tp, _Hash, _Pred, _Alloc>’
+                                         cout << *it2 << "-" << (it2==elementOcurrences[c].front()) << " ";
+                                                                                                 ^
+In file included from /usr/include/c++/4.8/deque:64:0,
+                 from /usr/include/c++/4.8/queue:60,
+                 from main2.cpp:6:
+/usr/include/c++/4.8/bits/stl_deque.h:247:5: note: template<class _Tp, class _Ref, class _Ptr> bool std::operator==(const std::_Deque_iterator<_Tp, _Ref, _Ptr>&, const std::_Deque_iterator<_Tp, _Ref, _Ptr>&)
+     operator==(const _Deque_iterator<_Tp, _Ref, _Ptr>& __x,
+     ^
+/usr/include/c++/4.8/bits/stl_deque.h:247:5: note:   template argument deduction/substitution failed:
+main2.cpp:49:97: note:   ‘__gnu_cxx::__normal_iterator<int*, std::vector<int> >’ is not derived from ‘const std::_Deque_iterator<_Tp, _Ref, _Ptr>’
+                                         cout << *it2 << "-" << (it2==elementOcurrences[c].front()) << " ";
+                                                                                                 ^
+In file included from /usr/include/c++/4.8/deque:64:0,
+                 from /usr/include/c++/4.8/queue:60,
+                 from main2.cpp:6:
+/usr/include/c++/4.8/bits/stl_deque.h:254:5: note: template<class _Tp, class _RefL, class _PtrL, class _RefR, class _PtrR> bool std::operator==(const std::_Deque_iterator<_Tp, _Ref, _Ptr>&, const std::_Deque_iterator<_Tp, _RefR, _PtrR>&)
+     operator==(const _Deque_iterator<_Tp, _RefL, _PtrL>& __x,
+     ^
+/usr/include/c++/4.8/bits/stl_deque.h:254:5: note:   template argument deduction/substitution failed:
+main2.cpp:49:97: note:   ‘__gnu_cxx::__normal_iterator<int*, std::vector<int> >’ is not derived from ‘const std::_Deque_iterator<_Tp, _Ref, _Ptr>’
+                                         cout << *it2 << "-" << (it2==elementOcurrences[c].front()) << " ";
+                                                                                                 ^
+In file included from /usr/include/c++/4.8/deque:64:0,
+                 from /usr/include/c++/4.8/queue:60,
+                 from main2.cpp:6:
+/usr/include/c++/4.8/bits/stl_deque.h:1957:5: note: template<class _Tp, class _Alloc> bool std::operator==(const std::deque<_Tp, _Alloc>&, const std::deque<_Tp, _Alloc>&)
+     operator==(const deque<_Tp, _Alloc>& __x,
+     ^
+/usr/include/c++/4.8/bits/stl_deque.h:1957:5: note:   template argument deduction/substitution failed:
+main2.cpp:49:97: note:   ‘__gnu_cxx::__normal_iterator<int*, std::vector<int> >’ is not derived from ‘const std::deque<_Tp, _Alloc>’
+                                         cout << *it2 << "-" << (it2==elementOcurrences[c].front()) << " ";
+                                                                                                 ^
+In file included from /usr/include/c++/4.8/vector:64:0,
+                 from /usr/include/c++/4.8/queue:61,
+                 from main2.cpp:6:
+/usr/include/c++/4.8/bits/stl_vector.h:1404:5: note: template<class _Tp, class _Alloc> bool std::operator==(const std::vector<_Tp, _Alloc>&, const std::vector<_Tp, _Alloc>&)
+     operator==(const vector<_Tp, _Alloc>& __x, const vector<_Tp, _Alloc>& __y)
+     ^
+/usr/include/c++/4.8/bits/stl_vector.h:1404:5: note:   template argument deduction/substitution failed:
+main2.cpp:49:97: note:   ‘__gnu_cxx::__normal_iterator<int*, std::vector<int> >’ is not derived from ‘const std::vector<_Tp, _Alloc>’
+                                         cout << *it2 << "-" << (it2==elementOcurrences[c].front()) << " ";
+                                                                                                 ^
+In file included from /usr/include/c++/4.8/queue:64:0,
+                 from main2.cpp:6:
+/usr/include/c++/4.8/bits/stl_queue.h:268:5: note: template<class _Tp, class _Seq> bool std::operator==(const std::queue<_Tp, _Seq>&, const std::queue<_Tp, _Seq>&)
+     operator==(const queue<_Tp, _Seq>& __x, const queue<_Tp, _Seq>& __y)
+     ^
+/usr/include/c++/4.8/bits/stl_queue.h:268:5: note:   template argument deduction/substitution failed:
+main2.cpp:49:97: note:   ‘__gnu_cxx::__normal_iterator<int*, std::vector<int> >’ is not derived from ‘const std::queue<_Tp, _Seq>’
+                                         cout << *it2 << "-" << (it2==elementOcurrences[c].front()) << " ";
+                                                                                                 ^
+In file included from /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++allocator.h:33:0,
+                 from /usr/include/c++/4.8/bits/allocator.h:46,
+                 from /usr/include/c++/4.8/string:41,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main2.cpp:2:
+/usr/include/c++/4.8/ext/new_allocator.h:139:5: note: template<class _Tp> bool __gnu_cxx::operator==(const __gnu_cxx::new_allocator<_Tp>&, const __gnu_cxx::new_allocator<_Tp>&)
+     operator==(const new_allocator<_Tp>&, const new_allocator<_Tp>&)
+     ^
+/usr/include/c++/4.8/ext/new_allocator.h:139:5: note:   template argument deduction/substitution failed:
+main2.cpp:49:97: note:   ‘__gnu_cxx::__normal_iterator<int*, std::vector<int> >’ is not derived from ‘const __gnu_cxx::new_allocator<_Tp>’
+                                         cout << *it2 << "-" << (it2==elementOcurrences[c].front()) << " ";
+                                                                                                 ^
+In file included from /usr/include/c++/4.8/bits/stl_algobase.h:67:0,
+                 from /usr/include/c++/4.8/bits/char_traits.h:39,
+                 from /usr/include/c++/4.8/ios:40,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main2.cpp:2:
+/usr/include/c++/4.8/bits/stl_iterator.h:811:5: note: template<class _Iterator, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_Iterator, _Container>&, const __gnu_cxx::__normal_iterator<_Iterator, _Container>&)
+     operator==(const __normal_iterator<_Iterator, _Container>& __lhs,
+     ^
+/usr/include/c++/4.8/bits/stl_iterator.h:811:5: note:   template argument deduction/substitution failed:
+main2.cpp:49:97: note:   mismatched types ‘const __gnu_cxx::__normal_iterator<_Iterator, _Container>’ and ‘__gnu_cxx::__normal_iterator<int*, std::vector<int> >*’
+                                         cout << *it2 << "-" << (it2==elementOcurrences[c].front()) << " ";
+                                                                                                 ^
+In file included from /usr/include/c++/4.8/bits/stl_algobase.h:67:0,
+                 from /usr/include/c++/4.8/bits/char_traits.h:39,
+                 from /usr/include/c++/4.8/ios:40,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main2.cpp:2:
+/usr/include/c++/4.8/bits/stl_iterator.h:805:5: note: template<class _IteratorL, class _IteratorR, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_IteratorL, _Container>&, const __gnu_cxx::__normal_iterator<_IteratorR, _Container>&)
+     operator==(const __normal_iterator<_IteratorL, _Container>& __lhs,
+     ^
+/usr/include/c++/4.8/bits/stl_iterator.h:805:5: note:   template argument deduction/substitution failed:
+main2.cpp:49:97: note:   mismatched types ‘const __gnu_cxx::__normal_iterator<_IteratorR, _Container>’ and ‘__gnu_cxx::__normal_iterator<int*, std::vector<int> >*’
+                                         cout << *it2 << "-" << (it2==elementOcurrences[c].front()) << " ";
+                                                                                                 ^
+main2.cpp:53:79: error: no matching function for call to ‘std::vector<int>::erase(__gnu_cxx::__normal_iterator<int*, std::vector<int> >*&)’
+                                 positions.erase( elementOcurrences[c].front() );
+                                                                               ^
+main2.cpp:53:79: note: candidates are:
+In file included from /usr/include/c++/4.8/vector:69:0,
+                 from /usr/include/c++/4.8/queue:61,
+                 from main2.cpp:6:
+/usr/include/c++/4.8/bits/vector.tcc:134:5: note: std::vector<_Tp, _Alloc>::iterator std::vector<_Tp, _Alloc>::erase(std::vector<_Tp, _Alloc>::iterator) [with _Tp = int; _Alloc = std::allocator<int>; std::vector<_Tp, _Alloc>::iterator = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; typename std::_Vector_base<_Tp, _Alloc>::pointer = int*]
+     vector<_Tp, _Alloc>::
+     ^
+/usr/include/c++/4.8/bits/vector.tcc:134:5: note:   no known conversion for argument 1 from ‘__gnu_cxx::__normal_iterator<int*, std::vector<int> >*’ to ‘std::vector<int>::iterator {aka __gnu_cxx::__normal_iterator<int*, std::vector<int> >}’
+/usr/include/c++/4.8/bits/vector.tcc:146:5: note: std::vector<_Tp, _Alloc>::iterator std::vector<_Tp, _Alloc>::erase(std::vector<_Tp, _Alloc>::iterator, std::vector<_Tp, _Alloc>::iterator) [with _Tp = int; _Alloc = std::allocator<int>; std::vector<_Tp, _Alloc>::iterator = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; typename std::_Vector_base<_Tp, _Alloc>::pointer = int*]
+     vector<_Tp, _Alloc>::
+     ^
+/usr/include/c++/4.8/bits/vector.tcc:146:5: note:   candidate expects 2 arguments, 1 provided

@@ -37,14 +37,4 @@ class Stack{
                         return node;
                 }
 
-                void search(){
-                        Node *node = this->top;
-
-                        while(node != NULL){
-                                cout << "value: " << node->value << "\n";
-                                node = node->next;
-                        }
-        
-                }
-
 };
