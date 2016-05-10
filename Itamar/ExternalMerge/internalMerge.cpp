@@ -3,7 +3,8 @@
 
 using namespace std;
 
-int chunkSize = 2;
+int max = 2;
+
 
 void push_all(vector<int>&dest,const vector<int>&source, int start){
         int i = start;
@@ -14,15 +15,15 @@ void push_all(vector<int>&dest,const vector<int>&source, int start){
 }
 
 
-vector<int> memoryMergeSort(const vector<int>& v, int l, int r ){
+vector<int> mergeSort(const vector<int>& v, int l, int r ){
         if( l == r ){
                 return vector<int>(1,v[l]);
         }
 
         int mid = l + ( (r-l) / 2 );
         
-        vector<int> left  = memoryMergeSort(v,l,mid);
-        vector<int> right = memoryMergeSort(v,mid+1,r);
+        vector<int> left  = mergeSort(v,l,mid);
+        vector<int> right = mergeSort(v,mid+1,r);
 
         vector<int> ret;
         int lIndex = 0;
@@ -51,34 +52,15 @@ vector<int> memoryMergeSort(const vector<int>& v, int l, int r ){
         return ret;
 }
 
-class Io{
-        public:
-                vector<string> fnames;
-                stringCurrentName;
-                
-                Io(){}
-                
-                void write( vector<int> values ){
-
-                }
-
-};
-
 int main(){
-        scanf("%d",&chunkSize);
-
-        int v;
-        vector<int> values = new vector<int>();
-        while( scanf("%d",&v) != EOF ){
-                values.append(v);
-
-                if( values.size() == chunkSize ){
-                        write( memoryMergeSort(values,0,v.size()-1 ) );
-                        delete values;
-                        values = new vector<int>();
-                }
-        }
-
+       vector<int> v;
+       v.push_back(0);
+       v.push_back(5);
+       v.push_back(3);
+       v.push_back(1);
+       v.push_back(2);
+       v.push_back(4);
+       v.push_back(7);
 
        vector<int> o = mergeSort(v,0,v.size()-1);
        for( int i=0; i<o.size(); i++ )
