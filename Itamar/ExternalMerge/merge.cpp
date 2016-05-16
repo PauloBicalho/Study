@@ -1,9 +1,11 @@
 #include<iostream>
 #include<vector>
+#include<cstdio>
+#include<cstdlib>
+#include<queue>
 
 using namespace std;
 
-int chunkSize = 2;
 
 void push_all(vector<int>&dest,const vector<int>&source, int start){
         int i = start;
@@ -12,7 +14,6 @@ void push_all(vector<int>&dest,const vector<int>&source, int start){
         }
 
 }
-
 
 vector<int> memoryMergeSort(const vector<int>& v, int l, int r ){
         if( l == r ){
@@ -45,44 +46,139 @@ vector<int> memoryMergeSort(const vector<int>& v, int l, int r ){
                 }
         }
 
-        for( int i=0; i<ret.size(); i++ )
-                cout << ret[i] << " ";
-        cout << "\n";
         return ret;
 }
 
-class Io{
+class NamesGenerator{
         public:
-                vector<string> fnames;
-                stringCurrentName;
+                string currentName;
+                int currentIndex;
                 
-                Io(){}
+                NamesGenerator(){
+                        currentName= "a";
+                        currentName[0]--;
+                        currentIndex=0;
+                }
                 
-                void write( vector<int> values ){
+                string next(){
+                        if( currentName[0] >= 'z' ){
+                                int i=1;
+                                for(; i<currentName.size(); i++ ){
+                                        if( currentName[i] < 'z' ){
+                                                currentName[i]++;
+                                                break;
+                                        }
+                                }
+                                for( int j=0; j<i; j++)
+                                        currentName[j] =  'a';
+                                if( i == currentName.size() )
+                                        currentName.push_back('a');
+                        } else
+                                currentName[0]++;
 
+                        return currentName;
                 }
 
 };
 
+void externalMerge( vector<string> &fnames, int chunkSize, NamesGenerator &ng ){
+        
+        int it = 0;
+        int left = fnames.size() - it;
+
+        while( left > 1 ){
+                int limit = min(chunkSize,left);
+
+                vector<FILE *> files;
+                vector<bool> emptyFile;
+                for(int i=0; i<limit; i++,it++){
+                        files.push_back( fopen(fnames[it].c_str(),"r") );
+                        emptyFile.push_back( false );
+                }
+                
+                string fname = ng.next();
+                fnames.push_back(fname);
+
+                priority_queue< pair<int,int> > heap;
+
+                int v;
+                for( int i=0; i<limit; i++){
+                        fscanf(files[i],"%d", &v);
+                        heap.push( make_pair(-1*v,i) );
+                }
+
+                FILE *mergedFile = fopen(fname.c_str(),"w");
+                int removedFiles = 0;
+                while( removedFiles < limit  ){
+                        pair<int,int> min = heap.top();
+                        heap.pop();
+
+                        fprintf(mergedFile,"%d ",-1 *min.first);
+                        
+                        fscanf(files[min.second], "%d", &v);
+                        if( feof(files[min.second]) ){
+                                if( not emptyFile[min.second] ){
+                                        emptyFile[min.second] = true;
+                                        removedFiles++;
+                                }
+                        }
+                        else
+                                heap.push( make_pair(-1 * v,min.second ) );
+
+                }
+                fclose(mergedFile);
+                
+                cout << "# " << fnames.size() << " - " << it << " - " << fnames[it] << "\n";
+
+                left = fnames.size() - it;
+
+        }
+
+}
+
 int main(){
+        int chunkSize;
         scanf("%d",&chunkSize);
 
+        NamesGenerator ng;
+        vector<string> fnames;
+        
         int v;
-        vector<int> values = new vector<int>();
+        vector<int> *values = new vector<int>();
         while( scanf("%d",&v) != EOF ){
-                values.append(v);
+                values->push_back(v);
 
-                if( values.size() == chunkSize ){
-                        write( memoryMergeSort(values,0,v.size()-1 ) );
+                if( values->size() == chunkSize ){
+                        vector<int> orderedValues = memoryMergeSort(*values,0,values->size()-1 );
+
+                        string fname = ng.next();
+                        cout << fname << "\n";
+                        FILE *fout = fopen(fname.c_str(),"w");
+                        fnames.push_back( fname );
+
+                        for( int i=0; i<orderedValues.size(); i++ )
+                                fprintf(fout, "%d ", orderedValues[i] );
+
+                        fclose(fout); 
                         delete values;
                         values = new vector<int>();
                 }
         }
 
+        if( values->size() > 0 ){
+                vector<int> orderedValues = memoryMergeSort(*values,0,values->size()-1 );
 
-       vector<int> o = mergeSort(v,0,v.size()-1);
-       for( int i=0; i<o.size(); i++ )
-               cout << o[i] << " ";
-       cout << "\n";
+                string fname = ng.next();
+                cout << fname << "-\n";
+                FILE *fout = fopen(fname.c_str(),"w");
+                fnames.push_back( fname );
 
+                for( int i=0; i<orderedValues.size(); i++ )
+                        fprintf(fout, "%d ", orderedValues[i] );
+
+                fclose(fout); 
+                delete values;
+        }
+
+        externalMerge( fnames, chunkSize, ng );
 }
